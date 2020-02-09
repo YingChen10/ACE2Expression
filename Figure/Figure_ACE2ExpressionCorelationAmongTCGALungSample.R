@@ -5,9 +5,9 @@ head(expr)
 names(expr) <- c("gene","name","gene_id","expr","type","case","sample","tissue")
 # calculate the median expression of each gene in tumor samples and normal samples
 mean_expr <- as.data.frame(expr %>% group_by(name,tissue,type) %>% summarise(mean=median(expr),na.rm=T))
-write.table(mean_expr,"median_expr_all_gene_lung_cancer.txt")
+write.table(mean_expr,"Data_AllGeneMedianExpressionInTCGALungCancerSample.txt")
 # input median expression of all genes
-mean_expr <- read.table("~/projects/ACE2/FPKM-UQ_processTCGA2/ACE2_expr_cor/median_expr_all_gene_lung_cancer.txt")
+mean_expr <- read.table("Data_AllGeneMedianExpressionInTCGALungCancerSample.txt")
 head(mean_expr)
 # conver data frame from long to wide
 library(reshape2)
