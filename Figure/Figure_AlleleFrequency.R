@@ -9,7 +9,7 @@ nrow(Esembl)
 
 #variations from the 1000 Genome Project to be annotated
 Merge<-merge(SNP,Esembl,by.x ="variation", by.y= "Variant.ID", all.x = T)
-#Only variantions in coding transcript 
+#to filter replicated variantions in non-coding transcript 
 test<-unique(Merge %>% filter(!grepl('non coding', Conseq..Type)) %>% select(variation, Pos, AF,EAS,Conseq..Type))
 head(test)
 nrow(test)
